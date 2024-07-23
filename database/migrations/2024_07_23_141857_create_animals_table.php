@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('animal', function (Blueprint $table) {
+        Schema::create('animals', function (Blueprint $table) {
             $table->id();
             $table->string('common_name', 100);
             $table->string('scientific_name', 100);
@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('class', 100);
             $table->string('family', 100);
             $table->tinyInteger('average_life')->unsigned();
-            $table->tinyInteger('average_weight')->unsigned();
+            $table->smallInteger('average_weight')->unsigned();
             $table->text('image');
             $table->timestamps();
         });
