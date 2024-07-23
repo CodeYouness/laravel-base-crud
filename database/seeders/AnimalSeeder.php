@@ -349,7 +349,8 @@ class AnimalSeeder extends Seeder
            ]
        ];
         foreach ($animals as $animal) {
-            Animal::create($animal);
+            $newAnimal = new Animal($animal);
+            $newAnimal->save();
         }
 
     }
