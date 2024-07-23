@@ -15,6 +15,7 @@ class AnimalSeeder extends Seeder
 
     public function run(): void
     {
+
         $animals = [
            [
                'common_name' => 'Leone',
@@ -350,5 +351,6 @@ class AnimalSeeder extends Seeder
         foreach ($animals as $animal) {
             Animal::create($animal);
         }
+
     }
 }
