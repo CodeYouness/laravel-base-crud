@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$animal->scientific_name}}</h5>
                         <p class="card-text">Also known as: {{$animal->common_name}}</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="{{route('animals.show', $animal)}}" class="btn btn-primary">Go to the detail</a>
                     </div>
                 </div>
             </div>
