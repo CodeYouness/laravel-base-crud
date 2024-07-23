@@ -4,13 +4,18 @@
     {{$animal->common_name}}
 @endsection
 
-<div class="container">
-    <div class="card">
-        <img src="{{$animal->image}}" class="card-img-top" alt="{{$animal->common_name}}">
-        <div class="card-body">
-            <h5 class="card-title">{{$animal->scientific_name}}</h5>
-            <p class="card-text">Also known as: {{$animal->common_name}}</p>
-            <a href="{{route('animals.index', $animal)}}" class="btn btn-primary">Go to the detail</a>
+@section('main-content')
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">{{$animal->scientific_name}}</h5>
+            </div>
+            <img src="{{$animal->image}}" class="card-img-top" alt="{{$animal->common_name}}">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{$animal->common_name}}</h6>
+                <p class="card-text">Commonly they live for {{$animal->average_life}} years, and their habitat is the {{$animal->habitat}},</p>
+                <a href="{{route('animals.index')}}" class="btn btn-primary">Return to the list</a>
+            </div>
         </div>
     </div>
-</div>
+@endsection
