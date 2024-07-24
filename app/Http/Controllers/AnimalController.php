@@ -70,7 +70,9 @@ class AnimalController extends Controller
      */
     public function update(Request $request, Animal $animal)
     {
-        //
+        $data = $request->all();
+        $animal->update($data);
+        return redirect()->route('animals.show', $animal);
     }
 
     /**

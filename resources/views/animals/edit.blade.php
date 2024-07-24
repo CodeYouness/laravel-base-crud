@@ -11,8 +11,10 @@
         </h1>
         <div class="row">
             <div class="col-6 m-auto">
-                <form action="{{ route('animals.store') }}" method="POST" id="creation-form">
+                <form action="{{ route('animals.update', $animal) }}" method="POST" id="creation-form">
                     @csrf
+                    @method("PUT")
+
                     <div class="mb-3">
                         <label for="common_name" class="form-label">Common name:</label>
                         <input type="text" class="form-control" id="common_name" name="common_name" value="{{ $animal->common_name}}">
@@ -46,7 +48,7 @@
                         <input type="text" class="form-control" id="image" name="image" value="{{ $animal->image}}">
                     </div>
                     <div class="mb-3 d-flex justify-content-between">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Update {{$animal->common_name}}</button>
                         <button type="reset" class="btn btn-danger">Reset</button>
                     </div>
 
