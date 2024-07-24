@@ -11,7 +11,7 @@
         </h1>
         <div class="row">
             <div class="col-6 m-auto">
-                <form action="{{ route('animals.store') }}" method="POST">
+                <form action="{{ route('animals.store') }}" method="POST" id="creation-form">
                     @csrf
                     <div class="mb-3">
                         <label for="common_name" class="form-label">Common name:</label>
