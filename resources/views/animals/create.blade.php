@@ -55,3 +55,7 @@
         </div>
     </main>
 @endsection
+
+@section('custom-scripts')
+    @vite('resources/js/confirm.js')
+@endsection
