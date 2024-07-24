@@ -18,10 +18,10 @@
                             <p class="card-text">Also known as: {{$animal->common_name}}</p>
                             <a href="{{ route('animals.show', $animal) }}" class="btn btn-primary">Details</a>
                             <a href="{{ route('animals.edit', $animal) }}" class="btn btn-warning">Edit</a>
-                            <form action="{{ route('animals.destroy', $animal)}}" method="post" class="d-inline-block">
-                                @csrf
+                            <form action="{{ route('animals.destroy', $animal)}}" method="POST" class="d-inline-block">
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                @csrf
+                                <button type="submit" class="btn btn-danger animal-delete">Delete</button>
                             </form>
                         </div>
                     </div>
@@ -31,4 +31,9 @@
     </div>
 </main>
 @endsection
+
+@section('custom-scripts')
+    @vite('resources/js/delete.js')
+@endsection
+
 
