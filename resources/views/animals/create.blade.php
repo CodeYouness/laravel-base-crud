@@ -15,7 +15,7 @@
                     @csrf
                     <div class="mb-3">
                         <label for="common_name" class="form-label">Common name:</label>
-                        <input type="text" class="form-control" id="common_name" aria-describedby="common_name">
+                        <input type="text" class="form-control" id="common_name" name="common_name">
                     </div>
                     <div class="mb-3">
                         <label for="scientific_name" class="form-label">Scientific name:</label>

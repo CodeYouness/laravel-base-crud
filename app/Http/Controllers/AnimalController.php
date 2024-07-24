@@ -29,7 +29,22 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $data = $request->all();
+
+
+        $newAnimal = new Animal($data);
+        $newAnimal->common_name = $data['common_name'];
+        $newAnimal->scientific_name = $data['scientific_name'];
+        $newAnimal->habitat = $data['habitat'];
+        $newAnimal->class = $data['class'];
+        $newAnimal->family = $data['family'];
+        $newAnimal->average_life = $data['average_life'];
+        $newAnimal->average_weight = $data['average_weight'];
+        $newAnimal->image = $data['image'];
+        // dd($newAnimal);
+
+        $newAnimal->save();
+        return redirect()->route('animals.index');
     }
 
     /**
