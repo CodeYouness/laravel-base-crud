@@ -5,13 +5,13 @@
 @endsection
 
 @section('main-content')
-<div class="container">
-@if (session('message'))
-    <div class="alert alert-success">
-        {{ session('message')}}
-    </div>
-@endif
+<div class="container mt-3">
     <div class="card w-50 m-auto">
+        @if (session('message'))
+            <div class="alert alert-success">
+                {{ session('message')}}
+            </div>
+            @endif
         <div class="card-header">
             <h5 class="card-title">{{$animal->scientific_name}}</h5>
         </div>
