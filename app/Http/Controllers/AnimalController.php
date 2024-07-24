@@ -31,19 +31,21 @@ class AnimalController extends Controller
     {
         $data = $request->all();
 
+        // Metodo piu lungo
+        // $newAnimal = new Animal($data);
+        // $newAnimal->common_name = $data['common_name'];
+        // $newAnimal->scientific_name = $data['scientific_name'];
+        // $newAnimal->habitat = $data['habitat'];
+        // $newAnimal->class = $data['class'];
+        // $newAnimal->family = $data['family'];
+        // $newAnimal->average_life = $data['average_life'];
+        // $newAnimal->average_weight = $data['average_weight'];
+        // $newAnimal->image = $data['image'];
+        // $newAnimal->save();
 
-        $newAnimal = new Animal($data);
-        $newAnimal->common_name = $data['common_name'];
-        $newAnimal->scientific_name = $data['scientific_name'];
-        $newAnimal->habitat = $data['habitat'];
-        $newAnimal->class = $data['class'];
-        $newAnimal->family = $data['family'];
-        $newAnimal->average_life = $data['average_life'];
-        $newAnimal->average_weight = $data['average_weight'];
-        $newAnimal->image = $data['image'];
-        // dd($newAnimal);
+        // Metodo piu corto (fillable)
+        $newAnimal = Animal::create($data);
 
-        $newAnimal->save();
         return redirect()->route('animals.show', $newAnimal);
     }
 
