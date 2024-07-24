@@ -46,7 +46,7 @@ class AnimalController extends Controller
         // Metodo piu corto (fillable)
         $newAnimal = Animal::create($data);
 
-        return redirect()->route('animals.show', $newAnimal);
+        return redirect()->route('animals.show', $newAnimal)->with('created-message', $newAnimal->common_name . " has been added succesfully");
     }
 
     /**

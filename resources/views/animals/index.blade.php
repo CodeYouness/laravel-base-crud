@@ -8,7 +8,7 @@
 <main>
     <div class="container">
         <h1 class="text-center">Animal index</h1>
-        @if (session('deleted-message'))
+@if (session('deleted-message'))
     <div class="alert alert-danger">
         {{ session('deleted-message')}}
     </div>

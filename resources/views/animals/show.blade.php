@@ -6,12 +6,17 @@
 
 @section('main-content')
 <div class="container mt-3">
+    @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message')}}
+        </div>
+    @endif
+    @if (session('created-message'))
+        <div class="alert alert-primary">
+            {{ session('created-message')}}
+        </div>
+    @endif
     <div class="card w-50 m-auto">
-        @if (session('message'))
-            <div class="alert alert-success">
-                {{ session('message')}}
-            </div>
-            @endif
         <div class="card-header">
             <h5 class="card-title">{{$animal->scientific_name}}</h5>
         </div>
