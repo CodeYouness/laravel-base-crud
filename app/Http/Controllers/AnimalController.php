@@ -44,7 +44,7 @@ class AnimalController extends Controller
         // dd($newAnimal);
 
         $newAnimal->save();
-        return redirect()->route('animals.index');
+        return redirect()->route('animals.show', $newAnimal);
     }
 
     /**
