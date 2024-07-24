@@ -22,3 +22,6 @@ Route::get('/animals/create',[AnimalController::class, 'create'])->name('animals
 Route::get('/animals/{animal}',[AnimalController::class, 'show'])->name('animals.show');
 Route::get('/animals/{animal}/edit',[AnimalController::class, 'edit'])->name('animals.edit');
 Route::put('/animals/{animal}',[AnimalController::class, 'update'])->name('animals.update');
+Route::put('/animals/{animal}',[AnimalController::class, 'destroy'])->name('animals.destroy');
+
+// Route::resource('/animals', AnimalController::class); <- Uguale a fare tutte le Route sopra

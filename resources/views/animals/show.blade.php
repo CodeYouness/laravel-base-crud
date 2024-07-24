@@ -13,7 +13,10 @@
         <div class="card-body">
             <h6 class="card-subtitle mb-2 text-body-secondary">{{$animal->common_name}}</h6>
             <p class="card-text">Commonly they live for {{$animal->average_life}} years, and their habitat is the {{$animal->habitat}},</p>
-            <a href="{{route('animals.index')}}" class="btn btn-primary">Return to the list</a>
+            <div class="d-flex justify-content-between">
+                <a href="{{route('animals.index')}}" class="btn btn-primary">Return to the list</a>
+                <a href="{{route('animals.edit', $animal)}}" class="btn btn-warning">Edit information</a>
+            </div>
         </div>
     </div>
 @endsection
