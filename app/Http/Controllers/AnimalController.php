@@ -72,7 +72,7 @@ class AnimalController extends Controller
     {
         $data = $request->all();
         $animal->update($data);
-        return redirect()->route('animals.show', $animal);
+        return redirect()->route('animals.show', $animal)->with('message', $animal->common_name . " has been edited succesfully");
     }
 
     /**
@@ -81,6 +81,6 @@ class AnimalController extends Controller
     public function destroy(Animal $animal)
     {
         $animal->delete();
-        return redirect()->route('animals.index');
+        return redirect()->route('animals.index')->with('deleted-message', $animal->common_name . " has been deleted succesfully");
     }
 }

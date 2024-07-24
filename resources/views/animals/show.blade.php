@@ -5,6 +5,12 @@
 @endsection
 
 @section('main-content')
+<div class="container">
+@if (session('message'))
+    <div class="alert alert-success">
+        {{ session('message')}}
+    </div>
+@endif
     <div class="card w-50 m-auto">
         <div class="card-header">
             <h5 class="card-title">{{$animal->scientific_name}}</h5>
@@ -19,4 +25,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection

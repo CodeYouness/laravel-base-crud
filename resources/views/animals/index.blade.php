@@ -8,6 +8,11 @@
 <main>
     <div class="container">
         <h1 class="text-center">Animal index</h1>
+        @if (session('deleted-message'))
+    <div class="alert alert-danger">
+        {{ session('deleted-message')}}
+    </div>
+@endif
         <div class="row">
             @foreach ($animals as $animal)
                 <div class="col-3">
