@@ -21,8 +21,13 @@
                         <div class="card-body">
                             <h5 class="card-title">{{$animal->scientific_name}}</h5>
                             <p class="card-text">Also known as: {{$animal->common_name}}</p>
-                            <a href="{{ route('animals.edit', $animal) }}" class="btn btn-warning">Restore</a>
-                            <form action="{{ route('animals.destroy', $animal)}}" method="POST" class="d-inline-block animal-delete"
+                            <form action="{{ route('animals.restore', $animal)}}" method="POST" class="d-inline-block"
+                            data-animal-id="{{ $animal->id }}" data-animal-name="{{ $animal->common_name }}">
+                                @method('PATCH')
+                                @csrf
+                                <button type="submit" class="btn btn-warning animal-delete">Restore</button>
+                            </form>
+                            <form action="{{ route('animals.permanent.delete', $animal)}}" method="POST" class="d-inline-block animal-delete"
                             data-animal-id="{{ $animal->id }}" data-animal-name="{{ $animal->common_name }}">
                                 @method('DELETE')
                                 @csrf

@@ -12,6 +12,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('animals.create')}}">Create</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('animals.deleted')}}">Deleted</a>
+                    </li>
                 </ul>
             </div>
         </div>

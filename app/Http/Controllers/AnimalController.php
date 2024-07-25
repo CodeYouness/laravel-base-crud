@@ -88,4 +88,14 @@ class AnimalController extends Controller
         $animals = Animal::onlyTrashed()->get();
         return view('animals.deleted-index',compact('animals'));
     }
+    public function restore(string $id){
+        $animal = Animal::onlyTrashed()->findOrFail($id);
+        $animal->restore();
+        return redirect()->route('animals.deleted')->with('deleted-message', $animal->common_name . " has been restored succesfully");;
+    }
+    public function permanentDelete(string $id){
+        $animal = Animal::onlyTrashed()->findOrFail($id);
+        $animal->forceDelete();
+        return redirect()->route('animals.deleted')->with('deleted-message', $animal->common_name . " has been deleted permanently");;
+    }
 }
