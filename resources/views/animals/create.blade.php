@@ -9,6 +9,16 @@
         <h1 class="text-center">
             Create a new animal
         </h1>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+
+        @endif
         <div class="row">
             <div class="col-6 m-auto">
                 <form action="{{ route('animals.store') }}" method="POST" id="creation-form">

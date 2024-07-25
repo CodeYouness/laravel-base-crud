@@ -29,7 +29,16 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = $request->validate([
+            'common_name' => 'required|unique:animals|max:255|min:3',
+            'scientific_name' => 'required|unique:animals|max:255|min:3',
+            'habitat' => 'required|max:255|min:3',
+            'class' => 'required|max:255|min:3',
+            'family' => 'required|max:255|min:3',
+            'average_life' => 'required|integer|min:1',
+            'average_weight' => 'required|integer|min:1',
+            'image' => 'required|url',
+        ]);
 
         // Metodo piu lungo
         // $newAnimal = new Animal($data);
