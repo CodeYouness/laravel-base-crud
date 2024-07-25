@@ -2,11 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAnimalRequest;
 use App\Models\Animal;
 use Illuminate\Http\Request;
 
 class AnimalController extends Controller
 {
+    private $validationRules = [
+        'common_name' => 'required|unique:animals|max:100|min:3',
+        'scientific_name' => 'required|unique:animals|max:100|min:3',
+        'habitat' => 'required|max:100|min:3',
+        'class' => 'required|max:100|min:3',
+        'family' => 'required|max:100|min:3',
+        'average_life' => 'required|integer|min:1|max:127',
+        'average_weight' => 'required|integer|min:1|max:32767',
+        'image' => 'required|url',
+    ];
     /**
      * Display a listing of the resource.
      */
@@ -27,18 +38,9 @@ class AnimalController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreAnimalRequest $request)
     {
-        $data = $request->validate([
-            'common_name' => 'required|unique:animals|max:100|min:3',
-            'scientific_name' => 'required|unique:animals|max:100|min:3',
-            'habitat' => 'required|max:100|min:3',
-            'class' => 'required|max:100|min:3',
-            'family' => 'required|max:100|min:3',
-            'average_life' => 'required|integer|min:1|max:127',
-            'average_weight' => 'required|integer|min:1|max:32767',
-            'image' => 'required|url',
-        ]);
+        $data = $request->validate();
 
         // Metodo piu lungo
         // $newAnimal = new Animal($data);
