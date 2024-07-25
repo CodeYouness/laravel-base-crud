@@ -23,7 +23,8 @@
                             <p class="card-text">Also known as: {{$animal->common_name}}</p>
                             <a href="{{ route('animals.show', $animal) }}" class="btn btn-primary">Details</a>
                             <a href="{{ route('animals.edit', $animal) }}" class="btn btn-warning">Edit</a>
-                            <form action="{{ route('animals.destroy', $animal)}}" method="POST" class="d-inline-block">
+                            <form action="{{ route('animals.destroy', $animal)}}" method="POST" class="d-inline-block animal-delete"
+                            data-animal-id="{{ $animal->id }}" data-animal-name="{{ $animal->common_name }}">
                                 @method('DELETE')
                                 @csrf
                                 <button type="submit" class="btn btn-danger animal-delete">Delete</button>
