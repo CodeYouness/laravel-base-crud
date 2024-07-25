@@ -30,13 +30,13 @@ class AnimalController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'common_name' => 'required|unique:animals|max:255|min:3',
-            'scientific_name' => 'required|unique:animals|max:255|min:3',
-            'habitat' => 'required|max:255|min:3',
-            'class' => 'required|max:255|min:3',
-            'family' => 'required|max:255|min:3',
-            'average_life' => 'required|integer|min:1',
-            'average_weight' => 'required|integer|min:1',
+            'common_name' => 'required|unique:animals|max:100|min:3',
+            'scientific_name' => 'required|unique:animals|max:100|min:3',
+            'habitat' => 'required|max:100|min:3',
+            'class' => 'required|max:100|min:3',
+            'family' => 'required|max:100|min:3',
+            'average_life' => 'required|integer|min:1|max:127',
+            'average_weight' => 'required|integer|min:1|max:32767',
             'image' => 'required|url',
         ]);
 
