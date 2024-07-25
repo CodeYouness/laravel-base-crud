@@ -83,4 +83,9 @@ class AnimalController extends Controller
         $animal->delete();
         return redirect()->route('animals.index')->with('deleted-message', $animal->common_name . " has been deleted succesfully");
     }
+    public function deletedIndex(){
+
+        $animals = Animal::onlyTrashed()->get();
+        return view('animals.deleted-index',compact('animals'));
+    }
 }
